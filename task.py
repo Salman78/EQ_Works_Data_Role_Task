@@ -89,6 +89,17 @@ def max_dist_from_POIs(POIs_dist_list):
         km_dist = distToKM(cartesian_dist)
         return km_dist
 
+def filter_list_util(lst1, lst2, common=True):
+    filtered_list = []
+    for item in lst1:
+        if(common==True):
+            if(item in lst2):
+                filtered_list.append(item)
+        if(common==False):
+            if (item not in lst2):
+                filtered_list.append(item)
+    return filtered_list
+'''
 
 initialData = pd.read_csv('/Users/Tausal21/Desktop/EQ_Works/project/ws-data-spark/data/DataSample.csv')
 filteredData = initialData.drop_duplicates(keep=False, subset=[' TimeSt', 'Latitude', 'Longitude']) #filtering out suspicious logins
@@ -169,6 +180,8 @@ print("Average real distance in km from POI_01 through 04 \n "
       POI_01_avg_dist_requestPoints, POI_02_avg_dist_requestPoints,
       POI_03_avg_dist_requestPoints, POI_04_avg_dist_requestPoints)
 '''
+
+'''
 POI_01_stdev_requestPoints = standard_deviation(POI_01_dist)
 POI_02_stdev_requestPoints = standard_deviation(POI_02_dist)
 POI_03_stdev_requestPoints = standard_deviation(POI_03_dist)
@@ -177,6 +190,7 @@ print("Standard Deviation in km from POI_01 through 04 \n "
       "to their nearest request points, respectively: ",
       POI_01_stdev_requestPoints, POI_02_stdev_requestPoints,
       POI_03_stdev_requestPoints, POI_04_stdev_requestPoints)
+'''
 '''
 
 POI_01_lat_long = list(POIData.loc[0, [' Latitude', 'Longitude']])
@@ -218,6 +232,7 @@ plt.show()
 #---------------------------------------------#
 
 '''
+'''
 fig = plt.gcf()
 ax = fig.gca()
 ax.add_artist(POI_01_circle)
@@ -226,6 +241,7 @@ ax.add_artist(POI_03_circle)
 ax.add_artist(POI_04_circle)
 
 fig.savefig('POI_circles.png')
+'''
 '''
 
 POI_01_circle = plt.Circle((POI_01_lat_long[1], POI_01_lat_long[0]), POI_01_circle_rad_km, color='blue', alpha=0.1)
@@ -247,6 +263,7 @@ fig.savefig('POI_circles.png')
 #filteredData.plot(kind="scatter", x="Longitude", y="Latitude", alpha=0.4)
 #plt.show()
 
+'''
 
 #----------------------------------------------------------------------------------------------#
 #                                   DAG SCHEDULING                                             #
@@ -254,8 +271,47 @@ fig.savefig('POI_circles.png')
 
 G = nx.DiGraph()
 
+#f = open("/Users/Tausal21/PycharmProjects/interview_task3/task_ids.txt", "r")
+#currentline = f.split(",")
+#task_list = f.readlines()
+#print(currentline)
+
+with open("/Users/Tausal21/PycharmProjects/interview_task3/task_ids.txt", "r") as filestream:
+    for line in filestream:
+        currentline = line.split(",")
+task_list = currentline
+
+for node in currentline:
+    G.add_node(node)
+print(G.nodes)
+
+with open("/Users/Tausal21/PycharmProjects/interview_task3/relations.txt", "r") as filestream:
+    for line in filestream:
+        currentline = line.rstrip('\n').split("->")
+        print(currentline[0], currentline[1])
+        G.add_edge(currentline[0], currentline[1])
+print(G.edges)
+#---write code here to visualize the graph
+topo_path_to_goal = list(nx.topological_sort(G))
+print(topo_path_to_goal)
+
+path_to_starting_task = nx.ancestors(G,'73')
+#print(path_to_starting_task)
+filtered_topo_path_to_goal = filter_list_util(topo_path_to_goal, path_to_starting_task, common=False)
+
+path_to_goal = nx.ancestors(G,'36')
+#print(path_to_goal)
+
+final_filtered_path = filter_list_util(filtered_topo_path_to_goal, path_to_goal)
+print(final_filtered_path)
 
 
+
+
+starting_task = 73
+goal_task = 36
+
+job = []
 
 
 
