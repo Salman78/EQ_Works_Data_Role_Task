@@ -12,15 +12,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/interview_task3$task.coverage" NAME="task Coverage Results" MODIFIED="1577677116626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/interview_task3$task.coverage" NAME="task Coverage Results" MODIFIED="1577726561789" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3110">
-              <caret line="317" selection-start-line="317" selection-end-line="317" />
+            <state relative-caret-position="2750">
+              <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -59,6 +59,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -70,7 +71,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -165,23 +165,25 @@
       <workItem from="1577392263373" duration="308000" />
       <workItem from="1577577393127" duration="497000" />
       <workItem from="1577641485939" duration="7091000" />
-      <workItem from="1577672764635" duration="5801000" />
+      <workItem from="1577672764635" duration="6042000" />
+      <workItem from="1577698704561" duration="2708000" />
+      <workItem from="1577714981550" duration="9128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54015000" />
+    <option name="totallyTimeSpent" value="66092000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="23" width="1260" height="710" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13300492" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14860427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49917898" weight="0.32847896" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.74794745" visible="true" weight="0.36084142" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7413793" visible="true" weight="0.2605178" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -189,13 +191,13 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.25205255" side_tool="true" visible="true" weight="0.36084142" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.25862068" side_tool="true" visible="true" weight="0.2605178" />
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49507388" weight="0.32847896" />
       <window_info anchor="bottom" id="Python Console" order="12" sideWeight="0.49671593" weight="0.32847896" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.19786535" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.1904762" />
       <window_info anchor="right" x="0" y="0" width="265" height="510" id="Documentation" order="4" side_tool="true" weight="0.2594417" />
       <window_info anchor="right" id="Database" order="5" />
     </layout>
@@ -217,8 +219,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3110">
-          <caret line="317" selection-start-line="317" selection-end-line="317" />
+        <state relative-caret-position="2750">
+          <caret line="317" lean-forward="true" selection-start-line="317" selection-end-line="317" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
