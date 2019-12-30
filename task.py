@@ -5,6 +5,7 @@ from scipy import spatial
 from statistics import stdev
 import matplotlib.pyplot as plt
 import networkx as nx
+import random
 from mpl_toolkits.mplot3d import Axes3D
 #from mpl_toolkits.basemap import Basemap
 import geopandas as gpd
@@ -99,6 +100,29 @@ def filter_list_util(lst1, lst2, common=True):
             if (item not in lst2):
                 filtered_list.append(item)
     return filtered_list
+
+def construct_task_queue(starting_task, goal_task, job, G):
+    tasks_not_placed = []
+    topo_path_to_goal = list(nx.topological_sort(G))
+    print(topo_path_to_goal)
+
+    #starting_task = input("Enter starting task: ")
+    starting_task_prereqs = nx.ancestors(G, starting_task)
+    print(starting_task_prereqs)
+    filtered_topo_path_to_goal = filter_list_util(topo_path_to_goal, starting_task_prereqs, common=False)
+
+    #goal_task = input("Enter goal task: ")
+    path_to_goal = nx.ancestors(G, goal_task)
+    print(path_to_goal)
+
+    final_filtered_path = filter_list_util(filtered_topo_path_to_goal, path_to_goal)
+    print(final_filtered_path)
+
+    for task in job:
+        if(task not in final_filtered_path):
+            tasks_not_placed.append(task)
+    return final_filtered_path, tasks_not_placed
+
 '''
 
 initialData = pd.read_csv('/Users/Tausal21/Desktop/EQ_Works/project/ws-data-spark/data/DataSample.csv')
@@ -271,11 +295,6 @@ fig.savefig('POI_circles.png')
 
 G = nx.DiGraph()
 
-#f = open("/Users/Tausal21/PycharmProjects/interview_task3/task_ids.txt", "r")
-#currentline = f.split(",")
-#task_list = f.readlines()
-#print(currentline)
-
 with open("/Users/Tausal21/PycharmProjects/interview_task3/task_ids.txt", "r") as filestream:
     for line in filestream:
         currentline = line.split(",")
@@ -292,29 +311,10 @@ with open("/Users/Tausal21/PycharmProjects/interview_task3/relations.txt", "r") 
         G.add_edge(currentline[0], currentline[1])
 print(G.edges)
 #---write code here to visualize the graph
-topo_path_to_goal = list(nx.topological_sort(G))
-print(topo_path_to_goal)
 
-path_to_starting_task = nx.ancestors(G,'73')
-#print(path_to_starting_task)
-filtered_topo_path_to_goal = filter_list_util(topo_path_to_goal, path_to_starting_task, common=False)
+starting_task = input("Enter starting task: ")
+goal_task = input("Enter goal task: ")
 
-path_to_goal = nx.ancestors(G,'36')
-#print(path_to_goal)
-
-final_filtered_path = filter_list_util(filtered_topo_path_to_goal, path_to_goal)
-print(final_filtered_path)
-
-
-
-
-starting_task = 73
-goal_task = 36
-
-job = []
-
-
-
-
-
-
+m = random.randrange(2,7,1)
+job = random.sample(task_list, m)
+output_task_queue, tasks_not_placed = construct_task_queue(starting_task, goal_task, job, G)
